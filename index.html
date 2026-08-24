@@ -701,7 +701,7 @@ const services = [
 const projects = [
   {id:"lazienka",title:"Remont łazienki",cat:"Łazienka",loc:"Katowice",dur:"10 dni",sum:"Pełny remont małej łazienki w bloku — nowa glazura, biały montaż i oświetlenie.",scope:["Skucie starych płytek","Nowa hydraulika","Glazura i terakota","Biały montaż"]},
   {id:"armatura",title:"Remont łazienki — biały montaż i oświetlenie",cat:"Łazienka",loc:"Katowice",sum:"Kompleksowy remont łazienki od podstaw — demontaż starej instalacji i płytek, nowa hydraulika, płytki, elektryka i nowoczesne oświetlenie.",scope:["Demontaż starej łazienki","Nowa instalacja wod-kan","Ułożenie płytek i wykończenie ścian","Elektryka i oświetlenie LED","Montaż armatury i wyposażenia"]},
-  {id:"rozdzielacz",title:"Montaż rozdzielacza instalacji wodnej",cat:"Hydraulika",loc:"Czeladź",sum:"Zgrzewanie rur i montaż rozdzielacza wody z zaworami kulowymi na każdy obieg.",scope:["Zgrzewanie rur PPR","Montaż rozdzielacza z zaworami","Rozprowadzenie instalacji wodnej"]},
+  {id:"rozdzielacz",title:"Montaż rozdzielacza instalacji wodnej",cat:"Hydraulika",loc:"Czeladź",sum:"Zgrzewanie rur i montaż rozdzielacza wody z zaworami kulowymi na każdy obieg.",scope:["Zgrzewanie rur PPR","Montaż rozdzielacza z zaworami","Rozprowadzenie instalacji wodnej"],hideTitle:true},
   {id:"wiata",title:"Wiata pod fotowoltaikę i samochód",cat:"Konstrukcje stalowe",loc:"Będzin",sum:"Konstrukcja stalowa spawana od podstaw i zamontowana przy garażu — zadaszenie pod panele fotowoltaiczne i miejsce postojowe dla samochodu.",scope:["Spawanie konstrukcji stalowej","Montaż do ściany garażu","Przygotowanie pod panele fotowoltaiczne","Zadaszenie miejsca postojowego"]},
   {id:"przelozenie",title:"Przełożenie instalacji wodnej",cat:"Hydraulika",loc:"Sosnowiec",sum:"Przekucia w ścianach i przełożenie instalacji wodnej — nowe rury, zawory odcinające i podłączenie wodomierza.",scope:["Przekucia pod nową instalację","Przełożenie rur wodnych","Montaż zaworów odcinających","Podłączenie wodomierza"]},
   {id:"czarnalazienka",title:"Ekskluzywna łazienka — czarna armatura i marmur",cat:"Łazienka",loc:"Katowice",sum:"Kompleksowy remont łazienki od podstaw w nowoczesnym stylu — nowa instalacja wodna, elektryka, płytki wielkoformatowe i czarna armatura z brązowymi dodatkami.",scope:["Nowa instalacja wodno-kanalizacyjna","Elektryka i oświetlenie","Płytki wielkoformatowe","Montaż wanny i armatury","Montaż WC podwieszanego i umywalki"]},
@@ -734,7 +734,7 @@ function workCardHtml(p){
   <button class="work" data-id="${p.id}">
     <div class="thumb"><img src="${IMAGES[p.id+'-after']}" alt="${p.title} — ${p.loc}" loading="lazy"><div class="shade"></div>
       ${hasBefore ? '<span class="ba-tag">Przed / Po</span>' : ''}
-      <div class="cap"><h3>${p.title}</h3><p>${p.loc}</p></div></div>
+      <div class="cap">${p.hideTitle ? '' : `<h3>${p.title}</h3>`}<p>${p.loc}</p></div></div>
   </button>`;
 }
 document.getElementById('projGrid').innerHTML = projects.map(workCardHtml).join('');
